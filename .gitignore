@@ -1,0 +1,17 @@
+[Bb]in/
+[Oo]bj/
+
+.vs/
+.vscode/
+*.user
+*.suo
+*.csproj.user
+
+packages/
+*.nupkg
+nuget.config
+
+wwwroot/lib/
+
+appsettings.*.json
+!appsettings.json
