@@ -2,7 +2,47 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<style>
+    .scrollable-container {
+        flex-grow: 1;
+        min-height: 100%;
+        overflow-y: auto;
+    }
+    .table thead th {
+        position: sticky;
+        top: 0;
+        background-color: #f8f9fa;
+        z-index: 1;
+    }
+</style>
+
+    <div class="scrollable-container">
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Site</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Link</th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                
+                <tr>
+                    <td>ExampleSite.com</td>
+                    <td>Product One</td>
+                    <td>$19.99</td>
+                    <td><a href="#" target="_blank">View</a></td>
+                </tr>
+                <tr>
+                    <td>BestProducts.net</td>
+                    <td>Another Great Item</td>
+                    <td>$47.50</td>
+                    <td><a href="#" target="_blank">View</a></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
 </div>
