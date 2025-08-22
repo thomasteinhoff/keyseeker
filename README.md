@@ -2,7 +2,7 @@
 
 An online scrapper that gathers and compares Steam game key prices from multiple retailer sites. Find the best deals for your next game!
 
-![Version](https://img.shields.io/badge/version-0.3-green.svg)
+![Version](https://img.shields.io/badge/version-0.7-green.svg)
 ![.Net](https://img.shields.io/badge/.NET-5C2D91?style=for-the-badge&logo=.net&logoColor=white)
 
 
