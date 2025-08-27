@@ -4,7 +4,7 @@ namespace keyseeker.Models
 {
     public class InstantGamingScraper : ISiteScraper
     {
-        private const string BaseUrl = "https://www.instant-gaming.com/en/search/?q=";
+        private const string BaseUrl = "https://www.instant-gaming.com/en/search/?platform%5B%5D=&type%5B%5D=steam&query=";
 
         public async Task<List<Game>> ScrapeAsync(string query)
         {
