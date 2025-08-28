@@ -1,31 +1,24 @@
-using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using keyseeker.Models;
 
-namespace keyseeker.Controllers;
-
 public class HomeController : Controller
 {
-    private readonly ILogger<HomeController> _logger;
+    private readonly ScraperManager _manager;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(ScraperManager manager)
     {
-        _logger = logger;
+        _manager = manager;
     }
 
-    public IActionResult Index()
+    public async Task<IActionResult> Index(string? query)
     {
-        return View();
-    }
+        List<Game> results = new();
 
-    public IActionResult Privacy()
-    {
-        return View();
-    }
+        if (!string.IsNullOrWhiteSpace(query))
+        {
+            results = await _manager.SearchAllAsync(query);
+        }
 
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
-    {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        return View(results);
     }
 }
