@@ -3,8 +3,10 @@ using keyseeker.Models;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
-
 builder.Services.AddScoped<ISiteScraper, InstantGamingScraper>();
+builder.Services.AddScoped<ISiteScraper, EnebaScraper>();
+builder.Services.AddScoped<ISiteScraper, NuuvemScraper>();
+builder.Services.AddScoped<ISiteScraper, GreenManScraper>();
 builder.Services.AddScoped<ScraperManager>();
 
 var app = builder.Build();
