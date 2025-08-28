@@ -5,6 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<ISiteScraper, InstantGamingScraper>();
+builder.Services.AddScoped<ScraperManager>();
 
 var app = builder.Build();
 

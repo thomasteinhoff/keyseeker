@@ -1,31 +1,23 @@
-using Microsoft.AspNetCore.Mvc;
 using keyseeker.Models;
+using Microsoft.AspNetCore.Mvc;
 
-namespace keyseeker.Controllers
+[Route("Scraper")]
+public class ScraperController : Controller
 {
-    public class ScraperController : Controller
+    private readonly ScraperManager _scraperManager;
+
+    public ScraperController(ScraperManager scraperManager)
     {
-        private readonly ISiteScraper _scraper;
+        _scraperManager = scraperManager;
+    }
 
-        public ScraperController(ISiteScraper scraper)
-        {
-            _scraper = scraper;
-        }
+    [HttpGet("Search")]
+    public async Task<ActionResult> Search(string query)
+    {
+        if (string.IsNullOrWhiteSpace(query))
+            return BadRequest("Query is required.");
 
-        [HttpGet]
-        public async Task<IActionResult> Search(string query)
-        {
-            Console.WriteLine($"[DEBUG] Query received: {query}");
-
-            if (string.IsNullOrWhiteSpace(query))
-                return View(new List<Game>());
-
-            var results = await _scraper.ScrapeAsync(query);
-
-            Console.WriteLine($"[DEBUG] Scraper returned {results.Count} results");
-            
-            return Json(results);
-
-        }
+        var results = await _scraperManager.SearchAllAsync(query);
+        return View(results);
     }
 }

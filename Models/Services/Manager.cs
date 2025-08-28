@@ -1,12 +1,10 @@
-using keyseeker.Models;
-
-namespace MyProject.Models
+namespace keyseeker.Models
 {
-    public class Manager
+    public class ScraperManager
     {
-        private readonly List<ISiteScraper> _scrapers;
+        private readonly IEnumerable<ISiteScraper> _scrapers;
 
-        public Manager(List<ISiteScraper> scrapers)
+        public ScraperManager(IEnumerable<ISiteScraper> scrapers)
         {
             _scrapers = scrapers;
         }
@@ -15,7 +13,6 @@ namespace MyProject.Models
         {
             var tasks = _scrapers.Select(s => s.ScrapeAsync(query));
             var results = await Task.WhenAll(tasks);
-
             return results.SelectMany(r => r).ToList();
         }
     }
