@@ -1,42 +1,89 @@
-﻿/* Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
-
-a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
+﻿.table thead th {
+  position: sticky;
+  top: 0;
+  background-color: #f8f9fa;
+  z-index: 1;
 }
 
-a {
-  color: #0077cc;
+.navbar {
+  background: var(--nv-color);
+  color: var(--contrast-color);
+  transition: background 0.2s, border-color 0.2s;
 }
 
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+/* Search Bar */
+.search-label {
+  position: relative;
+  border: 1px solid var(--search-b);
+  overflow: hidden;
+  background: var(--search-bg);
+  padding: 9px 35px;
+  cursor: text;
+  transition: background 0.2s, border-color 0.2s;
 }
 
-.nav-pills .nav-link.active,
-.nav-pills .show>.nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+.search-label:hover {
+  border-color: var(--search-b-hover);
 }
 
-.border-top {
-  border-top: 1px solid #e5e5e5;
+.search-label:focus-within {
+  background: var(--search-bg-focus);
+  border-color: var(--search-bg-hover);
 }
 
-.border-bottom {
-  border-bottom: 1px solid #e5e5e5;
+.search-label input {
+  outline: none;
+  width: 100%;
+  border: none;
+  background: none;
+  color: var(--contrast-color);
+  font-size: 14px;
 }
 
-.box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+.search-label .search-icon {
+  position: absolute;
+  left: 12px;
+  width: 16px;
+  height: auto;
+  color: #666;
+  pointer-events: none;
 }
 
-button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
+/* Theme switch button */
+.checkBox {
+  display: block;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0);
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0px 0px 0px 2px var(--contrast-color);
+}
+
+.checkBox div {
+  width: 60px;
+  height: 60px;
+  background-color: var(--contrast-color);
+  top: -52px;
+  left: -52px;
+  position: absolute;
+  transform: rotateZ(45deg);
+  z-index: 100;
+}
+
+.checkBox input[type=checkbox]:checked+div {
+  left: -10px;
+  top: -10px;
+}
+
+.checkBox input[type=checkbox] {
+  position: absolute;
+  left: 50px;
+  visibility: hidden;
+}
+
+.transition {
+  transition: 300ms ease;
 }

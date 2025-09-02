@@ -1,31 +1,36 @@
-html {
-  font-size: 14px;
+:root {
+  --bg-color: #F9F4F4;
+  --nv-color: #fff;
+  --contrast-color: #000;
+  --search-bg: #f9f9f9;
+  --search-bg-focus: #fff;
+  --search-b: #ccc;
+  --search-b-hover: #999;
+  --search-b-focus: #666;
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+.dark {
+  --bg-color: #0c1116;
+  --nv-color: #0A0A0A;
+  --contrast-color: #FFF;
+  --search-bg: #212931;
+  --search-bg-focus: #000;
+  --search-b: #333;
+  --search-b-hover: #666;
+  --search-b-focus: #999;
 }
 
 html {
   position: relative;
   min-height: 100%;
+  font-size: 16px;
 }
 
 body {
   margin-bottom: 60px;
+  background: var(--bg-color);
+  transition: background 0.2s, border-color 0.2s;
 }
 
-.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
-  color: var(--bs-secondary-color);
-  text-align: end;
-}
-
-.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
-  text-align: start;
-}
+.navbar-brand:hover {color: var(--contrast-color);}
+.navbar-brand {color: var(--contrast-color);}

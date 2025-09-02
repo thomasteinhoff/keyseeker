@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - keyseeker</title>
+    <title>Keyseeker</title>
     <script type="importmap"></script>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
@@ -13,20 +13,42 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-controller="Home" asp-action="Index">Keyseeker</a>
+        <nav class="navbar shadow-sm mb-3 px-3 d-flex align-items-center justify-content-between">
 
+                <div class="flex-shrink-0" style="width: 120px;">
+                    <a class="navbar-brand" asp-controller="Home" asp-action="Index">Keyseeker</a>
+                </div>
 
-                <form asp-controller="Home" asp-action="Index" method="get" class="d-flex justify-content-center flex-grow-1">
-                    <div class="d-flex justify-content-center flex-grow-1">
-                        <input type="text" name="query" placeholder="Search..." class="form-control" style="width: 50%;">
+                <form asp-controller="Home" asp-action="Index" method="get"
+                    class="d-flex flex-grow-1 justify-content-center">
+                    <div style="width: 50%;">
+                        <label class="search-label d-flex align-items-center rounded-3 w-100">
+                            <input type="text" name="query" class="input w-100" required placeholder="Search..." autocomplete="off" title="Insert game title"/>
+                            <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56.966 56.966">
+                                <path d="M55.146 51.887 41.588 37.786A22.926 22.926 0 0 0 46.984 23c0-12.682-10.318-23-23-23s-23 
+                         10.318-23 23 10.318 23 23 23c4.761 0 9.298-1.436 
+                         13.177-4.162l13.661 14.208c.571.593 1.339.92 
+                         2.162.92.779 0 1.518-.297 
+                         2.079-.837a3.004 3.004 0 0 0 
+                         .083-4.242zM23.984 6c9.374 0 
+                         17 7.626 17 17s-7.626 17-17 
+                         17-17-7.626-17-17 7.626-17 
+                         17-17z" fill="currentColor"></path>
+                            </svg>
+                        </label>
                     </div>
                 </form>
 
-                <div class="navbar-brand invisible">Keyseeker</div>
 
-            </div>
+                <div class="flex-shrink-0 d-flex justify-content-end" style="width: 120px;">
+                    <div class="theme-switch-container d-flex align-items-center">
+                        <label class="checkBox">
+                            <input id="themeToggle" type="checkbox">
+                            <div class="transition"></div>
+                        </label>
+                    </div>
+                </div>
+
         </nav>
     </header>
 

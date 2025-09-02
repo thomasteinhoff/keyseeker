@@ -4,21 +4,6 @@
     ViewData["Title"] = "Home Page";
 }
 
-<style>
-    .scrollable-container {
-        flex-grow: 1;
-        min-height: 100%;
-        overflow-y: auto;
-    }
-
-    .table thead th {
-        position: sticky;
-        top: 0;
-        background-color: #f8f9fa;
-        z-index: 1;
-    }
-</style>
-
 @if (Model != null && Model.Any())
 {
     <table class="table">
