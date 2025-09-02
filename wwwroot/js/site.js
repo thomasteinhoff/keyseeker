@@ -1,4 +1,17 @@
-﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿const checkbox = document.getElementById("themeToggle");
+const body = document.body;
 
-// Write your JavaScript code.
+let isDark = localStorage.getItem("isDark") === "true";
+
+function updateTheme() {
+    isDark ? body.classList.add("dark") : body.classList.remove("dark");
+    checkbox.checked = isDark;
+}
+
+updateTheme();
+
+checkbox.addEventListener("change", () => {
+    isDark = checkbox.checked;
+    localStorage.setItem("isDark", isDark);
+    updateTheme();
+});
