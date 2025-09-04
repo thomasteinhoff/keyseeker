@@ -6,26 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Keyseeker</title>
     <script type="importmap"></script>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/keyseeker.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
 </head>
 
 <body>
     <header>
-        <nav class="navbar shadow-sm mb-3 px-3 d-flex align-items-center justify-content-between">
+        <nav class="navbar fixed-top">
 
-                <div class="flex-shrink-0" style="width: 120px;">
-                    <a class="navbar-brand" asp-controller="Home" asp-action="Index">Keyseeker</a>
-                </div>
+            <div class="nav-bt-frame navbar-brand" style="justify-content: start;">
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index">Keyseeker</a>
+            </div>
 
-                <form asp-controller="Home" asp-action="Index" method="get"
-                    class="d-flex flex-grow-1 justify-content-center">
-                    <div style="width: 50%;">
-                        <label class="search-label d-flex align-items-center rounded-3 w-100">
-                            <input type="text" name="query" class="input w-100" required placeholder="Search..." autocomplete="off" title="Insert game title"/>
-                            <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56.966 56.966">
-                                <path d="M55.146 51.887 41.588 37.786A22.926 22.926 0 0 0 46.984 23c0-12.682-10.318-23-23-23s-23 
+            <form class="searchbarBox" asp-controller="Home" asp-action="Index" method="get">
+                <label class="search-label">
+                    <input type="text" name="query" required placeholder="Search..." autocomplete="off"
+                        title="Insert game title" value="@Context.Request.Query["query"]" />
+                    <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56.966 56.966">
+                        <path d="M55.146 51.887 41.588 37.786A22.926 22.926 0 0 0 46.984 23c0-12.682-10.318-23-23-23s-23 
                          10.318-23 23 10.318 23 23 23c4.761 0 9.298-1.436 
                          13.177-4.162l13.661 14.208c.571.593 1.339.92 
                          2.162.92.779 0 1.518-.297 
@@ -34,32 +33,26 @@
                          17 7.626 17 17s-7.626 17-17 
                          17-17-7.626-17-17 7.626-17 
                          17-17z" fill="currentColor"></path>
-                            </svg>
-                        </label>
-                    </div>
-                </form>
+                    </svg>
+                </label>
+            </form>
 
 
-                <div class="flex-shrink-0 d-flex justify-content-end" style="width: 120px;">
-                    <div class="theme-switch-container d-flex align-items-center">
-                        <label class="checkBox">
-                            <input id="themeToggle" type="checkbox">
-                            <div class="transition"></div>
-                        </label>
-                    </div>
-                </div>
+            <div class="nav-bt-frame">
+                <label class="checkBox">
+                    <input id="themeToggle" type="checkbox">
+                    <div class="transition"></div>
+                </label>
+            </div>
 
         </nav>
+
     </header>
 
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+    <main>
+        @RenderBody()
+    </main>
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>

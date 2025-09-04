@@ -1,6 +1,7 @@
 :root {
   --bg-color: #F9F4F4;
   --nv-color: #fff;
+  --nv-boxshadow: 0 0.125rem 0.25rem rgba(0, 0, 0, .2);
   --contrast-color: #000;
   --search-bg: #f9f9f9;
   --search-bg-focus: #fff;
@@ -12,6 +13,7 @@
 .dark {
   --bg-color: #0c1116;
   --nv-color: #0A0A0A;
+  --nv-boxshadow: 0 0.125rem 0.25rem rgba(255, 255, 255, .2);
   --contrast-color: #FFF;
   --search-bg: #212931;
   --search-bg-focus: #000;
@@ -21,16 +23,109 @@
 }
 
 html {
+  margin: 0;
+  padding: 0;
   position: relative;
   min-height: 100%;
   font-size: 16px;
+  font-family: 'Roboto', sans-serif;
 }
 
 body {
-  margin-bottom: 60px;
+  margin: 0;
+  padding: 0;
   background: var(--bg-color);
   transition: background 0.2s, border-color 0.2s;
 }
 
-.navbar-brand:hover {color: var(--contrast-color);}
-.navbar-brand {color: var(--contrast-color);}
+main {
+  display: flex;
+  justify-content: center;
+}
+
+a {
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  text-decoration: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: inline;
+  margin: 0;
+  padding: 0;
+  line-height: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+}
+
+a:hover,
+a:focus {
+  color: inherit;
+  text-decoration: none;
+  background: transparent;
+  outline: none;
+}
+
+a:active {
+  transform: none;
+}
+
+form {
+  width: 50%;
+}
+
+/* Table */
+.table {
+  width: 100%;
+  max-width: 1200px;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--nv-color);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 1rem 0;
+}
+
+.table thead th {
+  position: sticky;
+  top: 0;
+  background-color: var(--search-bg);
+  color: var(--contrast-color);
+  padding: 1rem;
+  font-weight: 600;
+  text-align: left;
+  border-bottom: 2px solid var(--search-b);
+  transition: background-color 0.2s ease;
+}
+
+.table tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.table tbody tr:hover {
+  background-color: var(--search-bg);
+}
+
+.table tbody td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--search-b);
+  color: var(--contrast-color);
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+@media (max-width: 768px) {
+  .table {
+    font-size: 0.875rem;
+  }
+
+  .table thead th,
+  .table tbody td {
+    padding: 0.75rem 0.5rem;
+  }
+}
